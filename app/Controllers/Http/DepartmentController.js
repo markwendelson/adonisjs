@@ -25,6 +25,20 @@ class DepartmentController {
           return response.status(204).json(null)
     }
 
+    async ['destroy-ids'] ({ params, request, response }) {
+        var department = request.only(['department_id'])
+        var ids = department.department_id.split(",")
+        //var department = "1,2,3".split(',')
+        // var splits = department.split(",").map(function (val) { return +val + 1; });
+        // let department = await Department.find(params.id)
+        // if (!department) {
+        //     return response.status(404).json(null)
+        //   }
+        //   await department.delete()
+        //   return response.status(204).json(null)
+        return ids
+    }
+
     async store ({ request, response }) {
         const departmentInfo = request.only(['department_code', 'department_name'])
 

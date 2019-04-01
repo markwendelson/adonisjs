@@ -16,15 +16,16 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.on('/').render('welcome')
-Route.on('/hello').render('hello')
+Route.on('/').render('hello')
+Route.on('/chat').render('chat')
 Route.get('/inventory', 'ItemMasterlistController.index')
 Route.get('/inventory/:id', 'ItemMasterlistController.show')
 
-Route.get('/department', 'DepartmentController.index')
-Route.get('/department/:id', 'DepartmentController.show')
-Route.delete('/department/:id', 'DepartmentController.destroy')
-Route.post('/department', 'DepartmentController.store')
-Route.put('/department/:id', 'DepartmentController.update')
+Route.get('/api/department', 'DepartmentController.index')
+Route.get('/api/department/:id', 'DepartmentController.show')
+Route.delete('/api/department/:id', 'DepartmentController.destroy')
+Route.post('/api/department/delete', 'DepartmentController.destroy-ids')
+Route.post('/api/department', 'DepartmentController.store')
+Route.put('/api/department/:id', 'DepartmentController.update')
 
-Route.get('/project', 'ProjectUnitController.index')
+Route.get('/api/project', 'ProjectUnitController.index')
